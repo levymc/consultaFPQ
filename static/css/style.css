@@ -24,7 +24,7 @@ nav a{
     cursor: pointer;
 }
 #btn-nav:hover {
-    background:  hwb(180 47% 49%);
+    background:  hwb(180 47% 49%) !important;
 }
 .nav-item{
     padding: 0 1.5px !important;
