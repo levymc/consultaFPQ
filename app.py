@@ -53,7 +53,7 @@ def resultado():
         except sqlite3.OperationalError as e: 
             flash(f"Peça não encontrada, digite novamente !", "warning")
             return render_template('index.html', msg_=0), print(type(e), e)
-    else: return render_template('contatos.html', msg_=0)
+    else: return render_template('index.html', msg_=0) 
 
 
 if __name__ == '__main__':
