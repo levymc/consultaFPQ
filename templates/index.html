@@ -59,11 +59,20 @@
             {% if posts[0][5]=="Aprovado" %}
               <div class="col-sm" style="color:rgb(23, 184, 8)"><h2>{{ posts[0][5] }}</h2></div>
             {% elif posts[0][5]=="Nao Aprovado" %}
-              <div class="col-sm" style="color:rgb(211, 7, 7)"><h4>Não Aprovado</h4></div>
+              <div class="col-sm">
+                <div class="col" style="color:rgb(211, 7, 7)"><h4>Não Aprovado</h4></div>
+                <div class="col">Emitir nota CD - FPQ não concluído</div>
+              </div>
             {% elif posts[0][5]=="Não Aprovado" %}
-              <div class="col-sm" style="color:rgb(211, 7, 7)"><h4>Não Aprovado</h4></div>
+              <div class="col-sm">
+                <div class="col" style="color:rgb(211, 7, 7)"><h4>Não Aprovado</h4></div>
+                <div class="col">Emitir nota CD - FPQ não concluído</div>
+              </div>
             {% else %}
-              <div class="col-sm" style="color:rgb(211, 7, 7)"><h4>N#D</h4></div>
+              <div class="col-sm">
+                <div class="col" style="color:rgb(211, 7, 7)"><h4>Não Aprovado</h4></div>
+                <div class="col">Emitir nota CD - FPQ não concluído</div>
+              </div>
             {% endif %}
           </div>
         </a>
