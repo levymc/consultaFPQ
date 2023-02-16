@@ -4,6 +4,7 @@ def selec_status(var):
     conn = sqlite3.connect('fpq_status.db')
     cursor = conn.cursor()
     posts = cursor.execute(f'SELECT * FROM status_fpq WHERE cemb={var} OR pn_topo="{var}"').fetchall()
+    print(posts)
     conn.close()
     if len(posts)==0:
         posts=""
