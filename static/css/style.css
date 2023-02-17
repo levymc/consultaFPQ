@@ -23,13 +23,21 @@ nav a{
 body.swal2-height-auto {
     height: 100% !important
   }
+.swal2-html-container{
+    overflow-x: hidden;
+}
 .botaoInfo{
     position: relative;
-    left: 7em;
-    bottom: 2.5em;
+    left: 5em;
+    bottom: 0;
 }
 #botaoInfo{
     cursor: pointer;
+    color: rgba(11, 23, 249, 0.481) !important;
+    font-size: 20px !important;
+}
+#botaoInfo:hover{
+    color: rgb(3, 3, 111) !important;
 }
 #btn-nav {
     cursor: pointer;

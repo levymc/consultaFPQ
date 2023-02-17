@@ -49,12 +49,17 @@ def resultado():
                 return render_template('index.html')
             else:
                 posts = sqlite_funcs.selec_status(msg_)
+                print(posts)
                 return render_template('index.html', msg_=msg_, posts=posts)
         except sqlite3.OperationalError as e: 
             flash(f"Peça não encontrada, digite novamente !", "warning")
             return render_template('index.html', msg_=0), print(type(e), e)
     else: return render_template('index.html', msg_=0) 
 
+@app.route("/info", methods=["POST", "GET"])
+def info():
+    return sqlite_funcs.selec_status(msg_)
+    
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000, use_reloader=False)
