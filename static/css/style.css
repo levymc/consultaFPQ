@@ -20,6 +20,17 @@ color: rgb(27, 27, 27) !important;
 nav a{
     color: hwb(0 98% 2%) !important;
 }
+body.swal2-height-auto {
+    height: 100% !important
+  }
+.botaoInfo{
+    position: relative;
+    left: 7em;
+    bottom: 2.5em;
+}
+#botaoInfo{
+    cursor: pointer;
+}
 #btn-nav {
     cursor: pointer;
 }
