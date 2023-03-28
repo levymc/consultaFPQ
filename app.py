@@ -3,6 +3,10 @@ import sqlite3, requests, sqlite_funcs, json
 from flask_mail import Mail, Message
 from tkinter import messagebox
 from werkzeug.exceptions import abort
+from waitress import serve
+import logging
+
+mode = "prod" #prod ou dev
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
@@ -62,4 +66,7 @@ def info():
     
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000, use_reloader=False)
+    if mode == 'dev':
+        app.run(debug=True, host='0.0.0.0', port=5000)
+    else:
+        serve(app, host='0.0.0.0', port=5000, threads=5, url_scheme='https')
