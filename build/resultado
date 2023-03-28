@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script type="text/javascript" src="../static/js_imports/sweetalert2.all.js"></script>
+  <!--<link rel="stylesheet" href="https://kit.fontawesome.com/636b4fbf6a.css" crossorigin="anonymous">-->
+           
+ 
+ 
+ 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Consulta FPQ</title>
+    <link href="../static/css_imports/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css">
+  </head>
+
+  <body>
+    
+    <nav class="navbar navbar-dark nav-pills mb-3 justify-content-center" style="background-color: hsl(180, 2%, 11%)">
+      <ul class="nav" id="pills-tab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link" id="btn-nav" href="/" role="tab" aria-controls="pills-home">Home</a>
+          </li>
+        </ul>
+    </nav>
+
+    <!-- Criando o Título da Página -->
+    <div class="row"  id="titulo">
+      <div class="row-sm text-sm-center"><h1>Consulta Status FPQ:   </h1></div>
+      
+      </div>
+    </div>
+
+    <!-- Criando o campo de input e o botão ao lado -->
+    <form class="form-inline justify-content-center" action="resultado" method="POST">
+      <div class="row d-flex justify-content-center">
+          <div class="input-group mb-2 w-50" id="input_field" name="input_field">
+              <input type="text" class="form-control input-sm" id="input_2" name="input_2" placeholder="Insira o radical do PN ou o CEMB" aria-label="Insira o radical do PN ou o CEMB" aria-describedby="button-addon2"/>
+              <button class="btn btn-outline-secondary" onClick="resultado(this)" type="submit" id="button-addon2">Procurar</button>
+          </div>
+      </div>
+    </form>
+
+    <!-- Tabela com informações das peças, aparece após procurar um PN ou CEMB -->
+    <div class="container text-center" style="color:#000000" id="tabela">
+      
+      
+      
+    </div>
+
+
+    <!-- Posicionando o logo Tecplas -->
+    <div class="right">
+        <div class="text-center">
+            <a><img src="../static/img/xxx.png" alt="Tec" id="img_tec"></a>
+        </div>
+    </div>
+
+    <!-- Alerta caso o que foi digitado está errado -->
+    <div>           
+             
+ 
+ 
+ 
+    </div>
+
+    <!-- Chamando os Scripts JS e Bootstrap -->
+    <script type="text/javascript" src="../static/javascript/popup.js"></script>
+    <script type="text/javascript" src="../static/javascript/buttons.js"></script>
+    <script src="https://example.com/fontawesome/v6.3.0/js/all.js" data-auto-replace-svg="nest"></script>
+    <script type="text/javascript" src="../static/js_imports/jquery.min.js"> </script>
+    <script type="text/javascript" src="../static/js_imports/bootstrap.bundle.min.js" ></script>
+    <script type="text/javascript" src="../static/js_imports/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../static/js_imports/popper.min.js" ></script>
+    <script type="text/javascript" src="../static/js_imports/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../static/js_imports/sweetalert.min.js"></script>
+    <script src="https://kit.fontawesome.com/636b4fbf6a.js" crossorigin="anonymous"></script>
+  </body>
+</html>
