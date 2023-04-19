@@ -79,7 +79,10 @@
     
 #input_field {
     position: absolute;
-    top:10em
+    top:12em
+}
+#input_field input{
+    user-select:text !important;
 }
     
 .logo{

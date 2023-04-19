@@ -20,6 +20,11 @@ def index():
     return render_template('index.html')
 
 
+@app.route("/confereStats", methods=["POST", "GET"])
+def confereStats():
+    input = request.json['valor']
+    return sqlite_funcs.selec_status(input)
+
 # @app.route("/send", methods = ["POST"])
 # def send():
 #     output = request.get_json()
