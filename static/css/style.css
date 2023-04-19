@@ -76,22 +76,18 @@
     margin-top: 20px;
     }
     
-    #right {
-    background: #ffffff;
-    float: left;
-    width: 195px;
-    margin-bottom: -2000px;
-    padding-bottom: 2000px;
-    position: relative; /* define o bloco contido para os filhos posicionados absolutamente */
-    }
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
     
     #img_tec {
-    position: relative;
+    position: fixed;
+    bottom: 10em;
     width: 160px; /* largura da imagem /
     height: 28px; / altura da imagem /
     top: 50px; / posição da imagem a partir do topo */
-    margin-left: auto;
-    margin-right: auto;
     }
     
     .container{
