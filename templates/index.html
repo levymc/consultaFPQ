@@ -1,12 +1,11 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <script type="text/javascript" src="../static/js_imports/sweetalert2.all.js"></script>
-  <!--<link rel="stylesheet" href="https://kit.fontawesome.com/636b4fbf6a.css" crossorigin="anonymous">-->
     {% include "sweetalerts.html" %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Consulta FPQ</title>
+    <link rel="stylesheet" href="../static/css/reset.css">
     <link href="../static/css_imports/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/style.css">
   </head>
@@ -14,12 +13,11 @@
   <body>
     
     <!-- Criando o Título da Página -->
-    <div class="row"  id="titulo">
-      <div class="row-sm text-sm-center"><h1>Consulta Status FPQ:   </h1></div>
+    <div class="row titulo">
+      <h1>Consulta Status FPQ:  </h1>
       <!--{% if posts is defined and posts|length > 0 %}
         <div class="row-sm text-sm-center"><h1 style="color:darkblue">{{ msg_ }}</h1></div>
       {% endif %}-->
-      </div>
     </div>
 
     <!-- Criando o campo de input e o botão ao lado -->
@@ -92,6 +90,7 @@
     <script type="text/javascript" src="../static/js_imports/popper.min.js" ></script>
     <script type="text/javascript" src="../static/js_imports/bootstrap.min.js"></script>
     <script type="text/javascript" src="../static/js_imports/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../static/js_imports/sweetalert2.all.js"></script>
     <script src="https://kit.fontawesome.com/636b4fbf6a.js" crossorigin="anonymous"></script>
   </body>
 </html>
