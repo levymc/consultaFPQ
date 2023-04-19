@@ -16,21 +16,19 @@
     <!-- Criando o Título da Página -->
     <div class="row"  id="titulo">
       <div class="row-sm text-sm-center"><h1>Consulta Status FPQ:   </h1></div>
-      {% if posts is defined and posts|length > 0 %}
+      <!--{% if posts is defined and posts|length > 0 %}
         <div class="row-sm text-sm-center"><h1 style="color:darkblue">{{ msg_ }}</h1></div>
-      {% endif %}
+      {% endif %}-->
       </div>
     </div>
 
     <!-- Criando o campo de input e o botão ao lado -->
-    <form class="form-inline justify-content-center" action="resultado" method="POST">
-      <div class="row d-flex justify-content-center">
-          <div class="input-group mb-2 w-50" id="input_field" name="input_field">
-              <input type="text" class="form-control input-sm" id="input_2" name="input_2" placeholder="Insira o radical do PN ou o CEMB" aria-label="Insira o radical do PN ou o CEMB" aria-describedby="button-addon2"/>
-              <button class="btn btn-outline-secondary" onClick="confereCodigo()" type="submit" id="button-addon2">Procurar</button>
-          </div>
-      </div>
-    </form>
+    <div class="row d-flex justify-content-center">
+        <div class="input-group mb-2 w-50" id="input_field" name="input_field">
+            <input type="text" class="form-control input-sm" id="input_2" name="input_2" placeholder="Insira o radical do PN ou o CEMB" aria-label="Insira o radical do PN ou o CEMB" aria-describedby="button-addon2"/>
+            <button class="btn btn-outline-secondary" onClick="confereCodigo()" type="submit" id="button-addon2">Procurar</button>
+        </div>
+    </div>
 
     <!-- Tabela com informações das peças, aparece após procurar um PN ou CEMB -->
     <!--<div class="container text-center" style="color:#000000" id="tabela">
