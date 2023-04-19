@@ -2,20 +2,6 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
     
-    .swal2-popup {
-    color: black !important;
-    font-family: Georgia, serif;
-    }
-    
-    .swal2-title {
-    font-size: 35px !important;
-    color: rgb(27, 27, 27) !important;
-    }
-    
-    .swal2-textarea{
-    height: 10em !important;
-    }
-    
 .titulo {
     width: 100vw;
     display: flex;
@@ -28,75 +14,46 @@
     font-weight: bold;
     font-size: 40px;
 }    
-    nav a{
-    color: hwb(0, 98%, 2%) !important;
-    }
-    
-    body.swal2-height-auto {
+body.swal2-height-auto {
     height: 100% !important;
-    }
-    
-    .swal2-html-container{
-    overflow-x: hidden;
-    }
-    
-    .botaoInfo{
+}
+.botaoInfo{
     position: relative;
     left: 5em;
     bottom: 0;
-    }
+}
     
-    #botaoInfo{
+#botaoInfo{
     cursor: pointer;
     color: rgba(11, 23, 249, 0.481) !important;
     font-size: 20px !important;
-    }
+}
     
-    #botaoInfo:hover{
+#botaoInfo:hover{
     color: rgb(3, 3, 111) !important;
-    }
-    
-    #btn-nav {
-    cursor: pointer;
-    }
-    
-    #btn-nav:hover {
-    background: hwb(180, 47%, 49%) !important;
-    }
-    
-    .nav-item{
-    padding: 0 1.5px !important;
-    }
-    
-    body,html{
+}
+body,html{
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
     background: radial-gradient(#ffffff, #a8a8a8) !important;
-    /* background-image: url('../static/img/2.png'); */
-    background-size: cover;
-    }
+    background-size: cover !important;
+}
     
 #input_field {
     display: flex;
     margin-top:6em
 }
-#input_field input{
-    user-select:text !important;
-}
-    
 .logo{
     display: flex;
     justify-content: center;
     align-items: center;
 }
     
-    #img_tec {
+#img_tec {
     position: fixed;
     bottom: 10em;
-    width: 160px; /* largura da imagem /
-    height: 28px; / altura da imagem /
-    top: 50px; / posição da imagem a partir do topo */
-    }
+    width: 160px;
+}
     
 .container{
     margin-top: 7%;
@@ -107,13 +64,14 @@
     flex-direction: column;
     gap: 1em;
 }
-
 .cabecalho{
     width: 100vw;
     display: flex;
     justify-content: space-between;
 }
-
+html.swal2-height-auto {
+    height: 100vh !important
+  }
 .conteudo{
     width: 100vw;
     display: flex;

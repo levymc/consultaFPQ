@@ -29,6 +29,12 @@ function confereCodigo(){
                 </div>`
         }).catch(error => {
             console.log(error);
+            Swal.fire({
+                title: "O código digitado está errado",
+                icon: "error",
+                showConfirmButton: true,
+                confirmButtonColor: '#007bff',
+            })
         })
     }else{
         Swal.fire({
