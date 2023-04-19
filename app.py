@@ -19,11 +19,11 @@ mail = Mail(app)
 def index():
     return render_template('index.html')
 
-
 @app.route("/confereStats", methods=["POST", "GET"])
 def confereStats():
-    input = request.json['valor']
-    return sqlite_funcs.selec_status(input)
+    global userInput
+    userInput = request.json['valor']
+    return sqlite_funcs.selec_status(userInput)
 
 # @app.route("/send", methods = ["POST"])
 # def send():
@@ -62,10 +62,10 @@ def confereStats():
 #             return render_template('index.html', msg_=0), print(type(e), e)
 #     else: return render_template('index.html', msg_=0) 
 
-# @app.route("/info", methods=["POST", "GET"])
-# def info():
-#     return sqlite_funcs.selec_status(msg_)
-    
+@app.route("/info", methods=["POST", "GET"])
+def info():
+    print(11111,userInput)#
+    return sqlite_funcs.selec_status(userInput)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000, use_reloader=False)
