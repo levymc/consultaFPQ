@@ -1,6 +1,13 @@
-function confereCodigo(){
-    let input = document.querySelector("#input_2")
-    if (input.value != null && input.value != '' && input.value != undefined){
+let input = document.querySelector("#input_2");
+const btn = document.querySelector("#button-addon2");
+input.addEventListener("keydown", function(event) {
+    if (event.keyCode === 13) {
+      confereCodigo();
+    }
+  });
+  
+let confereCodigo = () => {
+    if (input.value != null && input.value != ' ' && input.value != undefined){
         axios.post("/confereStats", {
             valor: input.value,
         }).then(response => {
@@ -37,11 +44,6 @@ function confereCodigo(){
             })
         })
     }else{
-        Swal.fire({
-            title: "Digite um CEMB ou PN para pesquisar o FPQ",
-            icon: "warning",
-            showConfirmButton: true,
-            confirmButtonColor: '#007bff',
-        })
+        alert("Ocorreu um erro, tente novamente ou acione o Processo.")
     }
 }
