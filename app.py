@@ -64,7 +64,6 @@ def confereStats():
 
 @app.route("/info", methods=["POST", "GET"])
 def info():
-    print(11111,userInput)#
     return sqlite_funcs.selec_status(userInput)
 
 if __name__ == '__main__':
