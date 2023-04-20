@@ -42,6 +42,7 @@ let confereCodigo = () => {
                 showConfirmButton: true,
                 confirmButtonColor: '#007bff',
             })
+            input.value = '';
         })
     }else{
         alert("Ocorreu um erro, tente novamente ou acione o Processo.")
