@@ -15,6 +15,12 @@
     font-weight: bold;
     font-size: 40px;
 }    
+.titulo h3{
+    margin-top: 1em;
+    text-align: center;
+    font-size: 16px;
+    color: rgb(95, 34, 34);
+}
 body.swal2-height-auto {
     height: 100% !important;
 }
