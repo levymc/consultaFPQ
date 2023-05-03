@@ -51,14 +51,16 @@ body,html{
     margin-top:6em
 }
 .logo{
+    /* position: absolute;
+    top: 0; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
     
 #img_tec {
-    position: fixed;
-    bottom: 10em;
+    /* position: fixed; */
+    /* bottom: 10em; */
     width: 160px;
 }
     
