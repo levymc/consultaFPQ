@@ -29,5 +29,5 @@ def atualizar_status(cemb, novo_status):
     cursor.execute("UPDATE status_fpq SET status = ? WHERE cemb = ?", (novo_status, cemb))
     conn.commit()
     conn.close()
-    return "Status atualizado no banco de dados"
+    return {'data': True}
 

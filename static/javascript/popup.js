@@ -22,7 +22,7 @@ const atualizaAxios = async (cod) => {
                 status: inputStatus
             })
             Swal.resetValidationMessage();
-            console.log(response.data);
+            response.data.data && Swal.fire({title:"Status Alterado com Sucesso!", icon:"success", confirmButtonColor: "#0D6EFD"})
             return response.data;
         }catch (error){
             Swal.showValidationMessage('Ocorreu um erro');

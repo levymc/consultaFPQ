@@ -35,7 +35,7 @@ def atualizaStatus():
     cod = request.json['cod']
     status = request.json['status']
     print("aqii", cod, status)
-    return {'value': True} #sqlite_funcs.atualizar_status()
+    return sqlite_funcs.atualizar_status(cod, status)
 
 if __name__ == '__main__':
     if mode == 'dev':
