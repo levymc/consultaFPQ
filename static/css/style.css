@@ -44,7 +44,7 @@ body.swal2-height-auto {
 body,html{
     height: 100%;
     overflow-x: hidden;
-    background: radial-gradient(#ffffff, #a8a8a8) !important;
+    background: #d5d5d5 !important;
     background-size: cover !important;
 }
     
@@ -121,7 +121,7 @@ html.swal2-height-auto {
     z-index: 1; /* Stay on top */
     top: 0;
     left: 0;
-    background-color: #111; /* Black*/
+    background-color: #848383; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
@@ -132,7 +132,7 @@ html.swal2-height-auto {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: #000000;
     display: block;
     transition: 0.3s;
   }
@@ -155,14 +155,14 @@ html.swal2-height-auto {
   .openbtn {
     font-size: 20px;
     cursor: pointer;
-    background-color: #111;
-    color: white;
+    background-color: #d5d5d5;
+    color: rgb(0, 0, 0);
     padding: 10px 15px;
     border: none;
   }
   
   .openbtn:hover {
-    background-color: #444;
+    background-color: #b9b9b9;
   }
   
   /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
