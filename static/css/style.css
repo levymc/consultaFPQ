@@ -176,3 +176,21 @@ html.swal2-height-auto {
     .sidebar {padding-top: 15px;}
     .sidebar a {font-size: 18px;}
   }
+table{
+    width: 100%;
+}
+table tr{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+#ediBTNcemb{
+    border: 0;
+    background-color: #ffffff;
+}
+#ediBTNcemb:hover{
+    color: #77b0ff;
+}
+#ediBTNcemb:active{
+    color: #5296f6;
+}
