@@ -51,8 +51,22 @@ const editarButtonFunc = (cod) => {
     }
 }
 
-const removerButtonFunc = (cod) => {
+const removerButtonFunc = async (cod) => {
     const resp = confirm(`Deseja remover as informações do código: ${cod}?`)
+    if (resp){
+        try {
+            const response = await axios.post("/removeCEMB", {
+                cod: cod,
+            })
+            Swal.resetValidationMessage();
+            response.data.data && Swal.fire({title:"CEMB Removido com Sucesso!", icon:"success", confirmButtonColor: "#0D6EFD"})
+            return response.data;
+        }catch (error){
+            Swal.showValidationMessage('Ocorreu um erro!');
+            console.log(error);
+            throw error;
+        }
+    }
 }
 
 const renderizarInfos = (data) => {

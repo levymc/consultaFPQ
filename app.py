@@ -37,6 +37,11 @@ def atualizaStatus():
     print("aqii", cod, status)
     return sqlite_funcs.atualizar_status(cod, status)
 
+@app.route('/removeCEMB', methods=["POST", "GET"])
+def removeCEMB():
+    cod = request.json['cod']
+    return sqlite_funcs.remover_linha(cod)
+
 @app.route("/info", methods=["POST", "GET"])
 def info():
     return sqlite_funcs.selec_status(userInput)

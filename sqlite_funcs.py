@@ -31,3 +31,11 @@ def atualizar_status(cemb, novo_status):
     conn.close()
     return {'data': True}
 
+def remover_linha(cemb):
+    conn = sqlite3.connect('fpq_status.db')
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM status_fpq WHERE cemb = ?", (cemb,))
+    conn.commit()
+    conn.close()
+    return {'data': True}
+
