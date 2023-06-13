@@ -37,6 +37,11 @@ def atualizaStatus():
     print("aqii", cod, status)
     return sqlite_funcs.atualizar_status(cod, status)
 
+@app.route("/info", methods=["POST", "GET"])
+def info():
+    return sqlite_funcs.selec_status(userInput)
+
+
 if __name__ == '__main__':
     if mode == 'dev':
         app.run(debug=True, host='0.0.0.0', port=5002)

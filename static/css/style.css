@@ -65,7 +65,10 @@ body,html{
     /* bottom: 10em; */
     width: 160px;
 }
-    
+
+.swal2-html-container{
+    overflow-x: hidden;
+}
 .container{
     margin-top: 7%;
     display: flex;
@@ -88,6 +91,7 @@ html.swal2-height-auto {
     width: 100vw;
     display: flex;
     justify-content: space-between;
+    overflow-x: hidden;
 }
 .containerBtn{
     position: fixed;
