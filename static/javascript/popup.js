@@ -14,7 +14,7 @@ const editarButtonFunc = async (cod) => {
     const resp = confirm(`Deseja editar as informações do código: ${cod}?`)
     if (resp){
         try {
-            const response = await axios.post("/insertStatus", {
+            const response = await axios.post("/atualizaStatus", {
                 valor: cod
             })
             Swal.resetValidationMessage();

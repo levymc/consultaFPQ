@@ -22,3 +22,12 @@ def inserir(result):
     conn.commit()
     conn.close()
     return "Informações inseridas no DB"
+
+def atualizar_status(cemb, novo_status):
+    conn = sqlite3.connect('fpq_status.db')
+    cursor = conn.cursor()
+    cursor.execute("UPDATE status_fpq SET status = ? WHERE cemb = ?", (novo_status, cemb))
+    conn.commit()
+    conn.close()
+    return "Status atualizado no banco de dados"
+

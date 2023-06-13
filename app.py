@@ -30,11 +30,11 @@ def confereStats():
     # print(userInput)
     return sqlite_funcs.selec_status(userInput)
 
-@app.route("/insertStatus", methods=["POST", "GET"])
-def insertStatus():
+@app.route("/atualizaStatus", methods=["POST", "GET"])
+def atualizaStatus():
     data = request.json['valor']
     print("aqii", data)
-    return {'value': True} #sqlite_funcs.insert()
+    return {'value': True} #sqlite_funcs.atualizar_status()
 
 if __name__ == '__main__':
     if mode == 'dev':
