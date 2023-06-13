@@ -6,7 +6,7 @@ from werkzeug.exceptions import abort
 from waitress import serve
 import logging
 
-mode = "dev" #prod ou dev
+mode = "prod" #prod ou dev
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
@@ -55,6 +55,6 @@ def info():
 
 if __name__ == '__main__':
     if mode == 'dev':
-        app.run(debug=True, host='0.0.0.0', port=5002)
+        app.run(debug=True, host='0.0.0.0', port=5000)
     else:
         serve(app, host='0.0.0.0', port=5000, threads=5, url_scheme='https')
