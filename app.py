@@ -27,52 +27,17 @@ def index():
 def confereStats():
     global userInput
     userInput = request.json['valor']
-    print(userInput)
+    # print(userInput)
     return sqlite_funcs.selec_status(userInput)
 
-# @app.route("/send", methods = ["POST"])
-# def send():
-#     output = request.get_json()
-#     result = json.loads(output) #this converts the json output to a python dictionary
-#     print(result) # Printing the new dictionary
-#     insert_message = sqlite_funcs.inserir(result)
-#     nome = result['nome']
-#     motivo = result['motivo']
-#     desc = result['descricao']
-#     msg = Message('ERRO - FPQ CONSULTA', sender = 'aeb0b9af40e392', recipients = ['processo5@tecplas.com.br', 'processo3@tecplas.com.br', 'processo4@tecplas.com.br', 'dany@tecplas.com.br'])
-#     msg.body = f"""
-#         Usuário:       {nome}
-#         Motivo:       {motivo}
-#         Descrição:       {desc}
-#         """
-#     # msg.html = "<b>Hey Paul</b>, sending you this email from my <a href="https://google.com">Flask app</a>, lmk if it works"
-#     mail.send(msg)
-#     return result
-
-# @app.route("/resultado", methods=["POST", "GET"])
-# def resultado():
-#     global msg_
-#     if request.method == 'POST':
-#         msg_ = request.values.get('input_2') if request.values.get('input_2') else ''
-#         try:
-#             if msg_ =='':
-#                 flash(f"Digite algo para pesquisar", "error")
-#                 return render_template('index.html')
-#             else:
-#                 posts = sqlite_funcs.selec_status(msg_)
-#                 print(posts)
-#                 return render_template('index.html', msg_=msg_, posts=posts)
-#         except sqlite3.OperationalError as e: 
-#             flash(f"Peça não encontrada, digite novamente !", "warning")
-#             return render_template('index.html', msg_=0), print(type(e), e)
-#     else: return render_template('index.html', msg_=0) 
-
-@app.route("/info", methods=["POST", "GET"])
-def info():
-    return sqlite_funcs.selec_status(userInput)
+@app.route("/insertStatus", methods=["POST", "GET"])
+def insertStatus():
+    data = request.json['valor']
+    print("aqii", data)
+    return {'value': True} #sqlite_funcs.insert()
 
 if __name__ == '__main__':
     if mode == 'dev':
-        app.run(debug=True, host='0.0.0.0', port=5000)
+        app.run(debug=True, host='0.0.0.0', port=5002)
     else:
         serve(app, host='0.0.0.0', port=5000, threads=5, url_scheme='https')

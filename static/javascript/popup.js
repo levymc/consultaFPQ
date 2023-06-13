@@ -10,19 +10,41 @@ function closeNav() {
     // document.getElementById("sideBtn").style.marginLeft = "0";
 }
 
+const editarButtonFunc = async (cod) => {
+    const resp = confirm(`Deseja editar as informações do código: ${cod}?`)
+    if (resp){
+        try {
+            const response = await axios.post("/insertStatus", {
+                valor: cod
+            })
+            Swal.resetValidationMessage();
+            console.log(response.data);
+            return response.data;
+        }catch (error){
+            Swal.showValidationMessage('Ocorreu um erro');
+            console.log(error);
+            throw error;
+        }
+    }
+}
+
+const removerButtonFunc = (cod) => {
+    const resp = confirm(`Deseja remover as informações do código: ${cod}?`)
+}
+
 const renderizarInfos = (data) => {
     console.log(data[0]);
     const editModal = document.getElementsByClassName("editModal")[0];
     const inputField = document.getElementsByClassName("inputField-editModal")[0];
     const table = document.createElement("table");
-    
+
     // Adicionar títulos das colunas
     const titleRow = document.createElement("tr");
-    
+
     const titleCol1 = document.createElement("th");
     titleCol1.textContent = "PN";
     titleRow.appendChild(titleCol1);
-    
+
     const titleCol2 = document.createElement("th");
     titleCol2.textContent = "CEMB";
     titleRow.appendChild(titleCol2);
@@ -34,17 +56,21 @@ const renderizarInfos = (data) => {
     const titleCol4 = document.createElement("th");
     titleCol4.innerHTML = ``;
     titleRow.appendChild(titleCol4);
-    
+
+    const titleCol5 = document.createElement("th");
+    titleCol5.innerHTML = ``;
+    titleRow.appendChild(titleCol5);
+
     table.appendChild(titleRow);
-    
+
     // Adicionar linhas com valores
     data.forEach((item) => {
         const row = document.createElement("tr");
-        
+
         const col1 = document.createElement("td");
         col1.textContent = item[1];
         row.appendChild(col1);
-        
+
         const col2 = document.createElement("td");
         col2.textContent = item[2];
         row.appendChild(col2);
@@ -57,20 +83,34 @@ const renderizarInfos = (data) => {
         const editarButton = document.createElement("button");
         editarButton.className = "btn-editar";
         editarButton.id = "ediBTNcemb"; // ID do botão
-        const iconSpan = document.createElement("span");
-        iconSpan.innerHTML = `<ion-icon name="create-outline"></ion-icon>`;
-        editarButton.appendChild(iconSpan);
+        const editIconSpan = document.createElement("span");
+        editIconSpan.innerHTML = `<ion-icon name="create-outline"></ion-icon>`;
+        editarButton.appendChild(editIconSpan);
         editarButton.addEventListener("click", () => {
-            console.log(item[2]);
+            editarButtonFunc(item[2]);
         });
         col4.appendChild(editarButton);
         row.appendChild(col4);
-        
+
+        const col5 = document.createElement("td");
+        const removerButton = document.createElement("button");
+        removerButton.className = "btn-remover";
+        removerButton.id = "ediBTNcemb"; // ID do botão
+        const removeIconSpan = document.createElement("span");
+        removeIconSpan.innerHTML = `<ion-icon name="trash-outline"></ion-icon>`;
+        removerButton.appendChild(removeIconSpan);
+        removerButton.addEventListener("click", () => {
+            removerButtonFunc(item[2]);
+        });
+        col5.appendChild(removerButton);
+        row.appendChild(col5);
+
         table.appendChild(row);
     });
-    
+
     editModal.insertBefore(table, inputField.nextSibling);
 };
+
 
 
 
