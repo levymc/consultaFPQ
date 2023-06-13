@@ -48,24 +48,46 @@ function newPopup(){
 /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
 function openNav() {
     document.getElementById("mySidebar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
+    // document.getElementById("sideBtn").style.marginLeft = "250px";
   }
   
   /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
 function closeNav() {
     document.getElementById("mySidebar").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
+    // document.getElementById("sideBtn").style.marginLeft = "0";
+}
+
+const procurar = () => {
+    const inputProc = document.getElementById("inputProc").value
+    console.log(inputProc)
 }
 
 function editStatus(){
+    const html = `
+    <div class="editModal">
+        <div class="inputField-editModal input-group input-group-sm mb-3">
+            <input class="form-control" id="inputProc" type="text" placeholder="Digite o PN ou o CEMB">
+            <button type="button" class="btn btn-primary" onclick="procurar()" id="btnProcurar">Procurar</button>
+        </div>
+    </div>
+    `
     Swal.fire({
         title: "Editar Status",
-        icon: "question"
+        icon: "question",
+        allowOutsideClick: false,
+        html: html,
+        confirmButtonColor: "#0D6EFD",
     })
+
+    const editModal = document.getElementsByClassName("editModal")
+    const inputField = document.getElementsByClassName("inputField-editModal")
+    
 }
 function addPN(){
     Swal.fire({
         title: "Adicionar PN",
-        icon: "question"
+        icon: "question",
+        allowOutsideClick: false,
+
     })
 }
