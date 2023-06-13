@@ -42,6 +42,12 @@ def removeCEMB():
     cod = request.json['cod']
     return sqlite_funcs.remover_linha(cod)
 
+@app.route('/adicionarPN', methods=["POST", "GET"])
+def adicionarPN():
+    data = request.json
+    print(data)
+    return sqlite_funcs.inserir(data)
+
 @app.route("/info", methods=["POST", "GET"])
 def info():
     return sqlite_funcs.selec_status(userInput)

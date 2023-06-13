@@ -17,7 +17,7 @@ def selec_status(var):
 def inserir(result):
     conn = sqlite3.connect('fpq_status.db')
     cursor = conn.cursor()
-    cursor.execute(f"INSERT INTO status_fpq (pn_topo, cemb, status) VALUES (?, ?, ?)", (result['nome'], result['motivo'], result['descricao']))
+    cursor.execute(f"INSERT INTO status_fpq (pn_topo, cemb, status) VALUES (?, ?, ?)", (result['pn'], result['cemb'], result['status']))
     # print(result['nome'], result['motivo'], result['descricao'])
     conn.commit()
     conn.close()

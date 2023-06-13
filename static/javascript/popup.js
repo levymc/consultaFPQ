@@ -148,8 +148,6 @@ const renderizarInfos = (data) => {
     editModal.insertBefore(table, inputField.nextSibling);
 };
 
-
-
 const procDB = async (codigo) => {
     try {
         const response = await axios.post("/confereStats", {
@@ -197,11 +195,58 @@ function editStatus() {
 
 
 
-function addPN(){
+function addPN() {
+    const html = `
+    <div class="form-group">
+        <label for="inputPN">PN</label>
+        <input type="text" class="form-control" id="inputPN" placeholder="Digite o PN">
+    </div>
+    <div class="form-group">
+        <label for="inputCEMB">CEMB</label>
+        <input type="text" class="form-control" id="inputCEMB" placeholder="Digite o CEMB">
+    </div>
+    <div class="form-group">
+        <label for="inputStatus">Status</label>
+        <input type="text" class="form-control" id="inputStatus" placeholder="Digite o Status">
+    </div>
+    `;
+
     Swal.fire({
         title: "Adicionar PN",
         icon: "question",
         allowOutsideClick: false,
-
+        html: html,
+        showCancelButton: true,
+        confirmButtonText: "Adicionar",
+        cancelButtonText: "Cancelar",
+        showLoaderOnConfirm: true,
+        preConfirm: async () => {
+            const inputPN = document.getElementById("inputPN").value;
+            const inputCEMB = document.getElementById("inputCEMB").value;
+            const inputStatus = document.getElementById("inputStatus").value;
+            try {
+                const response = await axios.post("/adicionarPN", {
+                    pn: inputPN,
+                    cemb: inputCEMB,
+                    status: inputStatus
+                });
+                if (response.data) {
+                    return response.data;
+                } else {
+                    throw new Error("Erro ao adicionar PN");
+                }
+            } catch (error) {
+                Swal.showValidationMessage(`${error}`);
+            }
+        }
     })
+        .then(result => {
+            if (result.value) {
+                Swal.fire({
+                    title: "Sucesso!",
+                    text: "PN adicionado com sucesso!",
+                    icon: "success"
+                });
+            }
+        });
 }
