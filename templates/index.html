@@ -13,15 +13,15 @@
   <body>
     <!-- Posicionando o logo Tecplas -->
     
+    <section id="sideBtn">
+      <button class="openbtn" onclick="openNav()">&#9776;</button>
+    </section>   
 
 
     <!-- Criando o Título da Página -->
     <div class="row titulo">
       <h1>Consulta Status FPQ:  </h1>
       <h3>Realize a busca pelo Cemb, ou pelo PN <b>sem o traço</b>.</h3>
-      <!--{% if posts is defined and posts|length > 0 %}
-        <div class="row-sm text-sm-center"><h1 style="color:darkblue">{{ msg_ }}</h1></div>
-      {% endif %}-->
     </div>
 
     <!-- Criando o campo de input e o botão ao lado -->
@@ -41,47 +41,15 @@
         </section>
     </div>
 
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Clients</a>
+      <a href="#">Contact</a>
+    </div>
     
-
-    <!-- Tabela com informações das peças, aparece após procurar um PN ou CEMB -->
-    <!--<div class="container text-center" style="color:#000000" id="tabela">
-      {% block content %}
-      {% if posts is defined and posts|length > 0 %}
-      <div class="row ">
-        <div class="col-sm"><h2>PN Topo</h2></div>
-        <div class="col-sm"><h2>Código Embraer</h2></div>
-        <div class="col-sm"><h2>STATUS</h2></div>
-      </div>
-          <div class="row align-middle">
-            <div class="col-sm"><p style="font-size:18px">{{ posts[0][1] }}</p></div>
-            <div class="col-sm"><p style="font-size:18px">{{ posts[0][2] }}</p></div>
-            {% if posts[0][5]=="Aprovado" %}
-              <div class="col-sm" style="color:rgb(23, 184, 8)">
-                <div class="row"><h2>{{ posts[0][5] }}</h2></div>
-                <section class="botaoInfo">Mais Informações: <a id="botaoInfo" onClick="Teste()"><i class="fa-solid fa-circle-info"></i></a></section>
-            </div>
-            {% elif posts[0][5]=="Nao Aprovado" %}
-              <div class="col-sm">
-                <div class="col" style="color:rgb(211, 7, 7)"><h4>Não Aprovado </h4></div>
-                <div class="col">Emitir nota CD - FPQ não concluído</div>
-              </div>
-            {% elif posts[0][5]=="Não Aprovado" %}
-              <div class="col-sm">
-                <div class="col" style="color:rgb(211, 7, 7)"><h4>Não Aprovado</h4></div>
-                <div class="col">Emitir nota CD - FPQ não concluído</div>
-              </div>
-            {% else %}
-              <div class="col-sm">
-                <div class="col" style="color:rgb(211, 7, 7)"><h4>Não Aprovado</h4></div>
-                <div class="col">Emitir nota CD - FPQ não concluído</div>
-              </div>
-            {% endif %}
-          </div>
-        <hr>
-        {% endif %}
-      {% endblock %}
-    </div> -->
-
+     
 
     <!-- Alerta caso o que foi digitado está errado -->
     <div>           
