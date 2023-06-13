@@ -33,7 +33,8 @@ let confereCodigo = () => {
                     <div class="col-sm"><p style="font-size:18px">${response.data[0][1]}</p></div>
                     <div class="col-sm"><p style="font-size:18px">${response.data[0][2]}</p></div>
                     ${conteudo}
-                </div>`
+                </div>
+                `
         }).catch(error => {
             console.log(error);
             Swal.fire({

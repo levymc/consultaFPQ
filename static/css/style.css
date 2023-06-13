@@ -1,3 +1,5 @@
+
+
 *{
     font-family: "Roboto", sans-serif;
     user-select: none;
@@ -72,6 +74,7 @@ body,html{
     text-align: center;
     flex-direction: column;
     gap: 1em;
+    position: relative;
 }
 .cabecalho{
     width: 100vw;
@@ -85,4 +88,23 @@ html.swal2-height-auto {
     width: 100vw;
     display: flex;
     justify-content: space-between;
+}
+.containerBtn{
+    position: fixed;
+    padding: 0;
+    bottom: 10vh;
+    right: 5vw;
+    width: auto;
+    height: auto;
+}
+.containerBtn button{
+    display: flex;
+    justify-content: center; align-items: center;
+    /* background-color: rgb(255, 56, 56); */
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 25px;
+    /* padding: 0.25rem 0.5rem 0.25rem 0.5rem; */
+    border: 0;
+    box-shadow: #000000;
 }
