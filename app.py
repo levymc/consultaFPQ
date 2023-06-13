@@ -32,8 +32,9 @@ def confereStats():
 
 @app.route("/atualizaStatus", methods=["POST", "GET"])
 def atualizaStatus():
-    data = request.json['valor']
-    print("aqii", data)
+    cod = request.json['cod']
+    status = request.json['status']
+    print("aqii", cod, status)
     return {'value': True} #sqlite_funcs.atualizar_status()
 
 if __name__ == '__main__':

@@ -10,12 +10,16 @@ function closeNav() {
     // document.getElementById("sideBtn").style.marginLeft = "0";
 }
 
-const editarButtonFunc = async (cod) => {
-    const resp = confirm(`Deseja editar as informações do código: ${cod}?`)
-    if (resp){
+const atualizaAxios = async (cod) => {
+    const inputStatus = document.getElementById("inputStatus").value
+    if (inputStatus === ''){
+        Swal.showValidationMessage('Nenhum status foi escrito');
+    }else{
+        Swal.resetValidationMessage();
         try {
             const response = await axios.post("/atualizaStatus", {
-                valor: cod
+                cod: cod,
+                status: inputStatus
             })
             Swal.resetValidationMessage();
             console.log(response.data);
@@ -25,6 +29,28 @@ const editarButtonFunc = async (cod) => {
             console.log(error);
             throw error;
         }
+    }
+}
+
+const editarButtonFunc = (cod) => {
+    const resp = confirm(`Deseja editar as informações do código: ${cod}?`)
+    if (resp){
+        const html = `
+        <div class="editModal">
+            <div class="inputField-editModal input-group input-group-sm mb-3">
+                <input class="form-control" id="inputStatus" type="text" placeholder="Digite o novo Status">
+                <button type="button" class="btn btn-secondary" onclick="atualizaAxios(${cod})" id="btnProcurar">Alterar</button>
+            </div>
+        </div>
+        `;
+        Swal.fire({
+            title: `Editar status do código: ${cod}`,
+            allowOutsideClick: false,
+            confirmButtonColor: "#0D6EFD",
+            html: html,
+            icon: "info",
+        })
+
     }
 }
 
@@ -110,9 +136,6 @@ const renderizarInfos = (data) => {
 
     editModal.insertBefore(table, inputField.nextSibling);
 };
-
-
-
 
 
 
