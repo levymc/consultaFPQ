@@ -27,6 +27,7 @@ def index():
 def confereStats():
     global userInput
     userInput = request.json['valor']
+    print(userInput)
     return sqlite_funcs.selec_status(userInput)
 
 # @app.route("/send", methods = ["POST"])
