@@ -1,4 +1,5 @@
 import sqlite3
+import hashlib
 
 def selec_status(var):
     print(var)
@@ -39,3 +40,16 @@ def remover_linha(cemb):
     conn.close()
     return {'data': True}
 
+def confereUsuario(usuario, senha):
+    conn = sqlite3.connect('fpq_status.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM operadores WHERE usuario = ?", (usuario,))
+    result = cursor.fetchone()
+    conn.close()
+
+    if result:
+        stored_usuario, stored_senha = result[2], result[3]
+        hashed_senha = hashlib.md5(senha.encode()).hexdigest()
+        if hashed_senha == stored_senha:
+            return True
+    return False

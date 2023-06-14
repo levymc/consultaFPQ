@@ -35,19 +35,23 @@ const modalAcesso = (type) => {
                 usuario: inputUsuario,
                 senha: inputSenha
             });
+            console.log(response.data.value)
+            if(response.data.value){
+                Swal.fire({
+                    title: "Sucesso!",
+                    text: "Acesso concedido!",
+                    icon: "success"
+                }).then(resp => {
+                    (resp.isConfirmed && type === 1) &&  
+                })
+            }else{
+                Swal.fire({
+                    title: "Erro!",
+                    text: "Usuário ou Senha incorreto",
+                    icon: "warning"
+                });
+            }
 
-            // Processar a resposta aqui se necessário
-            console.log(response.data);
-
-            // Exemplo de exibição de mensagem de sucesso
-            Swal.fire({
-                title: "Sucesso!",
-                text: "Acesso concedido!",
-                icon: "success"
-            });
-
-            // Fechar o modal após o sucesso
-            Swal.close();
         } catch (error) {
             // Exemplo de exibição de mensagem de erro
             Swal.fire({

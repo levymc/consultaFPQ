@@ -56,7 +56,7 @@ def info():
 def acessoProcesso():
     user = request.json['usuario']
     password = request.json['senha']
-    return {'value': True}
+    return {'value': sqlite_funcs.confereUsuario(user, password)}
 
 
 
