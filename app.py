@@ -52,6 +52,13 @@ def adicionarPN():
 def info():
     return sqlite_funcs.selec_status(userInput)
 
+@app.route("/acessoProcesso", methods=["POST", "GET"])
+def acessoProcesso():
+    user = request.json['usuario']
+    password = request.json['senha']
+    return {'value': True}
+
+
 
 if __name__ == '__main__':
     if mode == 'dev':
