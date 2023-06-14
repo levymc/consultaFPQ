@@ -23,47 +23,42 @@ mail = Mail(app)
 def index():
     return render_template('index.html')
 
-@app.route("/send", methods = ["POST"])
-def send():
-    output = request.get_json()
-    result = json.loads(output) #this converts the json output to a python dictionary
-    print(result) # Printing the new dictionary
-    insert_message = sqlite_funcs.inserir(result)
-    nome = result['nome']
-    motivo = result['motivo']
-    desc = result['descricao']
-    msg = Message('ERRO - FPQ CONSULTA', sender = 'aeb0b9af40e392', recipients = ['processo5@tecplas.com.br', 'processo3@tecplas.com.br', 'processo4@tecplas.com.br', 'dany@tecplas.com.br'])
-    msg.body = f"""
-        Usuário:       {nome}
-        Motivo:       {motivo}
-        Descrição:       {desc}
-        """
-    # msg.html = "<b>Hey Paul</b>, sending you this email from my <a href="https://google.com">Flask app</a>, lmk if it works"
-    mail.send(msg)
-    return result
+@app.route("/confereStats", methods=["POST", "GET"])
+def confereStats():
+    global userInput
+    userInput = request.json['valor']
+    # print(userInput)
+    return sqlite_funcs.selec_status(userInput)
 
-@app.route("/resultado", methods=["POST", "GET"])
-def resultado():
-    global msg_
-    if request.method == 'POST':
-        msg_ = request.values.get('input_2') if request.values.get('input_2') else ''
-        try:
-            if msg_ =='':
-                flash(f"Digite algo para pesquisar", "error")
-                return render_template('index.html')
-            else:
-                posts = sqlite_funcs.selec_status(msg_)
-                print(posts)
-                return render_template('index.html', msg_=msg_, posts=posts)
-        except sqlite3.OperationalError as e: 
-            flash(f"Peça não encontrada, digite novamente !", "warning")
-            return render_template('index.html', msg_=0), print(type(e), e)
-    else: return render_template('index.html', msg_=0) 
+@app.route("/atualizaStatus", methods=["POST", "GET"])
+def atualizaStatus():
+    cod = request.json['cod']
+    status = request.json['status']
+    print("aqii", cod, status)
+    return sqlite_funcs.atualizar_status(cod, status)
+
+@app.route('/removeCEMB', methods=["POST", "GET"])
+def removeCEMB():
+    cod = request.json['cod']
+    return sqlite_funcs.remover_linha(cod)
+
+@app.route('/adicionarPN', methods=["POST", "GET"])
+def adicionarPN():
+    data = request.json
+    print(data)
+    return sqlite_funcs.inserir(data)
 
 @app.route("/info", methods=["POST", "GET"])
 def info():
-    return sqlite_funcs.selec_status(msg_)
-    
+    return sqlite_funcs.selec_status(userInput)
+
+@app.route("/acessoProcesso", methods=["POST", "GET"])
+def acessoProcesso():
+    user = request.json['usuario']
+    password = request.json['senha']
+    return {'value': sqlite_funcs.confereUsuario(user, password)}
+
+
 
 if __name__ == '__main__':
     if mode == 'dev':
