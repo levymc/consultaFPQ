@@ -3,7 +3,7 @@ import hashlib
 
 def selec_status(var):
     print(var)
-    conn = sqlite3.connect('fpq_status.db')
+    conn = sqlite3.connect('//NasTecplas/Pintura/DB/fpq_status.db')
     cursor = conn.cursor()
     posts = cursor.execute(f'SELECT * FROM status_fpq WHERE cemb={var} OR pn_topo="{var}"').fetchall()
     conn.close()
@@ -16,7 +16,7 @@ def selec_status(var):
 # print(selec_status(3540220))
 
 def inserir(result):
-    conn = sqlite3.connect('fpq_status.db')
+    conn = sqlite3.connect('//NasTecplas/Pintura/DB/fpq_status.db')
     cursor = conn.cursor()
     cursor.execute(f"INSERT INTO status_fpq (pn_topo, cemb, status) VALUES (?, ?, ?)", (result['pn'], result['cemb'], result['status']))
     # print(result['nome'], result['motivo'], result['descricao'])
@@ -25,7 +25,7 @@ def inserir(result):
     return "Informações inseridas no DB"
 
 def atualizar_status(cemb, novo_status):
-    conn = sqlite3.connect('fpq_status.db')
+    conn = sqlite3.connect('//NasTecplas/Pintura/DB/fpq_status.db')
     cursor = conn.cursor()
     cursor.execute("UPDATE status_fpq SET status = ? WHERE cemb = ?", (novo_status, cemb))
     conn.commit()
@@ -33,7 +33,7 @@ def atualizar_status(cemb, novo_status):
     return {'data': True}
 
 def remover_linha(cemb):
-    conn = sqlite3.connect('fpq_status.db')
+    conn = sqlite3.connect('//NasTecplas/Pintura/DB/fpq_status.db')
     cursor = conn.cursor()
     cursor.execute("DELETE FROM status_fpq WHERE cemb = ?", (cemb,))
     conn.commit()
@@ -41,7 +41,7 @@ def remover_linha(cemb):
     return {'data': True}
 
 def confereUsuario(usuario, senha):
-    conn = sqlite3.connect('fpq_status.db')
+    conn = sqlite3.connect('//NasTecplas/Pintura/DB/fpq_status.db')
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM operadores WHERE usuario = ?", (usuario,))
     result = cursor.fetchone()
